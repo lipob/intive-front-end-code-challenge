@@ -2,7 +2,6 @@ import { GET_USERS } from './actions';
 
 const initialState = {
   users: [],
-  loading: true
 }
 
 const rootReducer = (state = initialState, action) => {
@@ -10,8 +9,7 @@ const rootReducer = (state = initialState, action) => {
     case GET_USERS:
       return {
         ...state,
-        users: action.payload,
-        loading: false
+        users: state.users.concat(action.payload)
       }
     default: return state;
   }
