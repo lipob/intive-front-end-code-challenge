@@ -1,0 +1,17 @@
+.homeHeader {
+  margin-top: 80px;
+  margin-bottom: 80px;
+  color: #ffffff;
+}
+.homeHeader h1 {
+  font-weight: 300;
+  font-size: 96px;
+  margin: 0;
+  margin-bottom: 20px;
+}
+.homeLeading {
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 1em;
+  margin: 0;
+}

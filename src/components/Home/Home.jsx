@@ -1,17 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getUsers } from './../store/actions';
-import UsersContainer from './UsersContainer/UsersContainer'
+import { getUsers } from '../../store/actions';
+import UsersContainer from '../UsersContainer/UsersContainer'
+import './Home.css';
 
 const Home = () => {
-  const [users, setUsers] = useState([]);
   const dispatch = useDispatch()
+  const currentUsers = useSelector(state => state.users)
 
   useEffect(() => {
-    dispatch(getUsers());
+    if(!currentUsers.length) {
+      dispatch(getUsers());
+    }
   }, [])
   
-  const currentUsers = useSelector(state => state.users)
 
   return (
     <div>
