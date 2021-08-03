@@ -1,6 +1,6 @@
 .userDetailWrapper {
-  width: 33%;
-  margin-top: 40px;
+  max-width: 100%;
+  margin-top: 16px;
   margin-right: auto;
   margin-left: auto;
   display: flex;
@@ -32,10 +32,13 @@
   border-radius: 50%;
 }
 .userDetailBody h2 {
-  font-size: 40px;
+  font-size: 24px;
   font-weight: 400;
   margin: 0;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
+}
+.userDetailBody h3 {
+  font-size: 16px;
 }
 .userDetailBody .userContact h3, .userDetailBody .userLocation h3 {
   color: #000000;
@@ -64,4 +67,21 @@
   color: #AD00FF;
   border-color: #AD00FF;
   background-color: #ffffff;
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  .userDetailBody h2 {
+    font-size: 40px;
+  }
+}
+@media (min-width: 992px) {
+  .userDetailBody h2 {
+    font-size: 40px;
+    margin-bottom: 20px;
+  }
+  .userDetailWrapper {
+    width: 33%;
+    margin-top: 40px;
+    margin-right: auto;
+    margin-left: auto;
+  }
 }

@@ -1,9 +1,9 @@
 .userCard {
-  padding: 20px;
-  border-radius: 20px;
+  padding: 16px 8px;
+  border-radius: 16px;
   text-align: center;
   background-color: rgba(255,255,255,0.95);
-  box-shadow: 0 8px 8px rgba(0,0,0,0.3);
+  box-shadow: 0 4px 4px rgba(0,0,0,0.3);
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -12,7 +12,7 @@
 }
 .userCard:hover {
   background-color: rgba(255,255,255,1);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+  box-shadow: 0 16px 32px rgba(0,0,0,0.2);
 }
 .userCardThumbnail {
   margin-bottom: 20px;
@@ -38,13 +38,28 @@
 }
 .cardButton span {
   color: #000000;
-  padding: 8px 20px;
+  padding: 4px 8px;
   border: 2px solid #000000;
-  border-radius: 20px;
+  border-radius: 16px;
   display: inline-block;
   transition: all 0.3s;
+  font-weight: 700;
 }
 .cardButton span:hover {
   color: #AD00FF;
   border-color: #AD00FF;
+}
+@media (min-width: 992px) {
+  .userCard {
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 8px 8px rgba(0,0,0,0.3);
+  }
+  .userCard:hover {
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+  }
+  .cardButton span {
+    padding: 8px 20px;
+    border-radius: 20px;
+  }
 }

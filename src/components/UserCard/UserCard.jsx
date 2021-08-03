@@ -15,7 +15,7 @@ const UserCard = ({ thumb, name, location, userName }) => {
           {location.country}
         </p>
         <Link to={`/user/${userName}`} className="cardButton">
-          <span>View details</span>
+          <span>Show details</span>
         </Link>
       </div>
     </div>

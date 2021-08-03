@@ -1,17 +1,31 @@
 .homeHeader {
-  margin-top: 80px;
-  margin-bottom: 80px;
+  margin-top: 40px;
+  margin-bottom: 20px;
   color: #ffffff;
 }
 .homeHeader h1 {
   font-weight: 300;
-  font-size: 96px;
+  font-size: 60px;
+  line-height: 1;
   margin: 0;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 }
 .homeLeading {
-  font-size: 32px;
+  font-size: 20px;
   font-weight: 400;
   line-height: 1em;
   margin: 0;
+}
+@media (min-width: 992px) {
+  .homeHeader {
+    margin-top: 80px;
+    margin-bottom: 80px;
+  }
+  .homeHeader h1 {
+    font-size: 96px;
+    margin-bottom: 20px;
+  }
+  .homeLeading {
+    font-size: 32px;
+  }
 }
