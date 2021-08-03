@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import './UserDetail.css';
 
 const UserDetail = (props) => {
@@ -39,9 +40,32 @@ const UserDetail = (props) => {
 
   return (
     <div className="userDetailWrapper">
-      <div className="userDetailImage">
-        <img src={user.picture} alt={user.fullName} />
+      <h1>Code challenge! User details</h1>
+      <div className="userDetail">
+        <div className="userDetailImage">
+          <img src={user.picture} alt={user.fullName} />
+        </div>
+        <div className="userDetailBody">
+          <h2>{user.fullName}</h2>
+          <div className="userContact">
+            <h3>Contact</h3>
+            <span>Email: {user.email}</span>
+            <span>Phone: {user.phone}</span>
+            <span>Cell: {user.cell}</span>
+          </div>
+          <div className="userLocation">
+            <h3>Location</h3>
+            <span>Address: {user.address}</span>
+            <span>City: {user.city} ({user.postCode})</span>
+            <span>State: {user.state}</span>
+            <span>Country: {user.country}</span>
+            <span>Timezone: {user.timeZone}</span>
+          </div>
+        </div>
       </div>
+      <Link to='/' className="goHomeButton">
+        <span>Go Homepage</span>
+      </Link>
     </div>
   );
 }
