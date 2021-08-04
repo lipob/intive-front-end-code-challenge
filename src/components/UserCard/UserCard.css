@@ -15,7 +15,7 @@
   box-shadow: 0 16px 32px rgba(0,0,0,0.2);
 }
 .userCardThumbnail {
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 }
 .userCardThumbnail img {
   width: 96px;
@@ -23,18 +23,23 @@
   border-radius: 50%;
 }
 .userCardBody {
-  min-height: 128px;
+  min-height: 88px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 }
 .userCardBody h3 {
   font-size: 18px;
+  line-height: 1.1;
   margin: 0;
+  margin-bottom: 2px;
+}
+.userCardBody h3:hover {
+  text-decoration: underline;
 }
 .userCardBody p {
   color: #888888;
   margin: 0;
+  font-size: 14px;
 }
 .cardButton span {
   color: #000000;
@@ -51,15 +56,18 @@
 }
 @media (min-width: 992px) {
   .userCard {
-    padding: 20px;
+    padding: 20px 8px;
     border-radius: 20px;
     box-shadow: 0 8px 8px rgba(0,0,0,0.3);
   }
   .userCard:hover {
     box-shadow: 0 20px 40px rgba(0,0,0,0.2);
   }
+  .userCardBody h3 {
+    margin-bottom: 4px;
+  }
   .cardButton span {
-    padding: 8px 20px;
+    padding: 5px 20px;
     border-radius: 20px;
   }
 }

@@ -6,18 +6,22 @@ const UserCard = ({ thumb, name, location, userName }) => {
   return (
     <div className="userCard">
       <div className="userCardThumbnail">
-        <img src={thumb} alt={`${name.first} ${name.last}`} />
+        <Link to={`/user/${userName}`}>
+          <img src={thumb} alt={`${name.first} ${name.last}`} />
+        </Link>
       </div>
       <div className="userCardBody">
-        <h3>{`${name.first} ${name.last}`}</h3>
-        <p>
-          {location.city} <br />
-          {location.country}
-        </p>
+        <Link to={`/user/${userName}`}>
+          <h3>{`${name.first} ${name.last}`}</h3>
+          <p>
+            {location.city} <br />
+            {location.country}
+          </p>
+        </Link>
+      </div>
         <Link to={`/user/${userName}`} className="cardButton">
           <span>Show details</span>
         </Link>
-      </div>
     </div>
   );
 }

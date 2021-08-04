@@ -68,9 +68,18 @@
   border-color: #AD00FF;
   background-color: #ffffff;
 }
-@media (min-width: 768px) and (max-width: 991px) {
+@media (min-width: 768px) {
+  .userDetailWrapper {
+    max-width: 80%;
+    margin-top: 16px;
+    margin-right: auto;
+    margin-left: auto;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
   .userDetailBody h2 {
-    font-size: 40px;
+    font-size: 32px;
   }
 }
 @media (min-width: 992px) {
@@ -80,8 +89,6 @@
   }
   .userDetailWrapper {
     width: 33%;
-    margin-top: 40px;
-    margin-right: auto;
-    margin-left: auto;
+    margin-top: 20px;
   }
 }

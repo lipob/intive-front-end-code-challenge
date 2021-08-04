@@ -6,24 +6,33 @@ import './Home.css';
 
 const Home = () => {
   const [page, setPage] = useState(1)
-  const dispatch = useDispatch()
+  const [users, setUsers] = useState(0)
+  const resultsLimitPerPage = 10;
   const currentUsers = useSelector(state => state.users)
+  const lastPage = useSelector(state => state.page)
+  const dispatch = useDispatch()
 
+  // Fetch users on page load
   useEffect(() => {
-    if(!currentUsers.length) {
+    if (!currentUsers.length) {
+      dispatch(getUsers(page, resultsLimitPerPage));
+    }
+  }, [dispatch, page, currentUsers])
+
+  // Fetch users when user scrolls
+  useEffect(() => {
+    if (page !== 1 && page <= 5 && users <= 40) {
       dispatch(getUsers(page, 10));
     }
-  }, [])
+  }, [dispatch, page, users])
 
-  useEffect(() => {
-    if (page < 5 && currentUsers.length < 50) {
-      dispatch(getUsers(page, 10));
-    }
-  }, [page])
-
-  window.onscroll = (event) => {
-    if (window.innerHeight + window.pageYOffset >= document.body.offsetHeight) {
-      setPage(page => page + 1)
+  // Update results page number for infinite scroll
+  if (page < 4) {
+    window.onscroll = (event) => {
+      if (window.innerHeight + window.pageYOffset >= document.body.offsetHeight) {
+        setPage(page => page = lastPage)
+        setUsers(users => users = currentUsers.length)
+      }
     }
   }
   

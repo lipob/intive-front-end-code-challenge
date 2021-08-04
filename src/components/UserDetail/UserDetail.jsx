@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { MapPin, Phone, Smartphone, Mail } from 'react-feather';
 import './UserDetail.css';
 
 const UserDetail = (props) => {
@@ -36,7 +37,7 @@ const UserDetail = (props) => {
         cell: currentUser[0].cell
       });
     }
-  }, [])
+  }, [users, userName])
 
   return (
     <div className="userDetailWrapper">
@@ -49,17 +50,16 @@ const UserDetail = (props) => {
           <h2>{user.fullName}</h2>
           <div className="userContact">
             <h3>Contact</h3>
-            <span>Email: {user.email}</span>
-            <span>Phone: {user.phone}</span>
-            <span>Cell: {user.cell}</span>
+            <span><Mail size={14} /> {user.email}</span>
+            <span><Phone size={14} /> {user.phone}</span>
+            <span><Smartphone size={14} /> {user.cell}</span>
           </div>
           <div className="userLocation">
             <h3>Location</h3>
-            <span>Address: {user.address}</span>
-            <span>City: {user.city} ({user.postCode})</span>
-            <span>State: {user.state}</span>
-            <span>Country: {user.country}</span>
-            <span>Timezone: {user.timeZone}</span>
+            <span><MapPin size={14} /> {user.address}</span>
+            <span>{user.city} ({user.postCode})</span>
+            <span>{user.state} - {user.country}</span>
+            <span>GMT {user.timeZone}</span>
           </div>
         </div>
       </div>

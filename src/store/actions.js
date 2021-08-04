@@ -7,7 +7,8 @@ export const getUsers = (page, results) => async (dispatch) => {
     const { data } = await axios.get(`https://randomuser.me/api/?page=${page}&results=${results}`);
     dispatch({
       type: GET_USERS,
-      payload: data.results
+      payload: data.results,
+      page
     })
   }
   catch(error) {
