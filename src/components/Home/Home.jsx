@@ -22,19 +22,23 @@ const Home = () => {
   // Fetch users when user scrolls
   useEffect(() => {
     if (page !== 1 && page <= 5 && users <= 40) {
-      dispatch(getUsers(page, 10));
+      dispatch(getUsers(page, resultsLimitPerPage));
     }
   }, [dispatch, page, users])
 
   // Update results page number for infinite scroll
-  if (page < 4) {
-    window.onscroll = (event) => {
-      if (window.innerHeight + window.pageYOffset >= document.body.offsetHeight) {
-        setPage(page => page = lastPage)
-        setUsers(users => users = currentUsers.length)
+  useEffect(() => {
+    const handleScroll = () => {
+      if (page < 4) {
+        if (window.innerHeight + window.pageYOffset >= document.body.offsetHeight) {
+          setPage(page => page = lastPage)
+          setUsers(users => users = currentUsers.length)
+        }
       }
     }
-  }
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll)
+  });
   
   return (
     <div>
