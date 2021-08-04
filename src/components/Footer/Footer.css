@@ -1,0 +1,20 @@
+.footerWrapper {
+  color: #ffffff;
+  margin-top: 32px;
+  padding: 16px;
+  text-align: center;
+}
+.footerWrapper a {
+  color: #ffffff;
+  text-decoration: none;
+}
+.footerWrapper a:hover {
+  text-decoration: underline;
+}
+
+@media (min-width: 992px) {
+  .footerWrapper {
+    margin-top: 40px;
+    padding: 16px;
+  }
+}
