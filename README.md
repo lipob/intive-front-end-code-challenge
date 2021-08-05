@@ -1,8 +1,14 @@
-# Getting Started with Intive Font-End Code Challenge!
+<img src="https://digitalstudio.com.ar/docs/intive-code-challenge-responsive-preview.png" width="240px" alt="Intive Code Challenge! App responsive preview"/>
+
+# Intive Font-End Code Challenge!
+
+Create a simple page using the Random User API.
+
+To view the deployed app, just visit: <a href="https://intive-code-challenge.herokuapp.com/">https://intive-code-challenge.herokuapp.com/</a>
+
+## Getting Started - Available Scripts
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
 
 In the project directory, you can run:
 
