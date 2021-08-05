@@ -1,8 +1,9 @@
-import { GET_USERS } from './actions';
+import { GET_USERS, IS_LOADING } from './actions';
 
 const initialState = {
   users: [],
-  page: 1
+  page: 1,
+  loading: false
 }
 
 const rootReducer = (state = initialState, action) => {
@@ -11,10 +12,16 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         users: state.users.concat(action.payload),
-        page: state.page + 1
-      }
+        page: state.page + 1,
+        loading: false
+      };
+    case IS_LOADING:
+      return {
+        ...state,
+        loading: true
+      };
     default: return state;
-  }
-}
+  };
+};
 
 export default rootReducer;

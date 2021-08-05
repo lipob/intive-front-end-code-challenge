@@ -20,6 +20,8 @@ const UserDetail = (props) => {
   })
   const userName = props.match.params.username;
   const users = useSelector(state => state.users.length && state.users);
+
+  // Set current user details
   useEffect(() => {
     if (users.length) {
       const currentUser = users.filter(user => user.login.username === userName);

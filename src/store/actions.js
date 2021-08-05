@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 export const GET_USERS = 'GET_USERS';
+export const IS_LOADING = 'IS_LOADING';
 
 export const getUsers = (page, results) => async (dispatch) => {
   try {
@@ -13,5 +14,11 @@ export const getUsers = (page, results) => async (dispatch) => {
   }
   catch(error) {
     console.error(error)
-  }
-}
+  };
+};
+
+export const isLoading = () => {
+  return {
+    type: IS_LOADING
+  };
+};
