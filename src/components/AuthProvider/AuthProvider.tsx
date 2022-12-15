@@ -3,7 +3,7 @@ import { authProvider } from '../../auth/auth'
 import { AuthContext } from '../../context/AuthContext'
 
 const AuthProvider = ({ children }: { children: ReactNode }) => {
-  const [user, setUser] = useState<any>(null)
+  const [user, setUser] = useState<string | null>(null)
 
   const signin = (newUser: string, callback: VoidFunction) => {
     return authProvider.signin(() => {
