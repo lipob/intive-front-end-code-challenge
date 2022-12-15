@@ -1,29 +1,36 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import './UserCard.css';
+import React, { FC } from 'react'
+import { Link } from 'react-router-dom'
+import { User } from '../../types'
+import './UserCard.css'
 
-const UserCard = ({ thumb, name, location, userName }) => {
+interface UserCardProps {
+  user: User
+}
+
+const UserCard: FC<UserCardProps> = props => {
+  const { user } = props
+
   return (
     <div className="userCard">
       <div className="userCardThumbnail">
-        <Link to={`/user/${userName}`}>
-          <img src={thumb} alt={`${name.first} ${name.last}`} />
+        <Link to={`/user/${user.username}`}>
+          <img src={user.thumb} alt={user.fullName} />
         </Link>
       </div>
       <div className="userCardBody">
-        <Link to={`/user/${userName}`}>
-          <h3>{`${name.first} ${name.last}`}</h3>
+        <Link to={`/user/${user.username}`}>
+          <h3>{user.fullName}</h3>
           <p>
-            {location.city} <br />
-            {location.country}
+            {user.city} <br />
+            {user.country}
           </p>
         </Link>
       </div>
-        <Link to={`/user/${userName}`} className="cardButton">
-          <span>Show details</span>
-        </Link>
+      <Link to={`/user/${user.username}`} className="cardButton">
+        <span>Show details</span>
+      </Link>
     </div>
-  );
+  )
 }
 
-export default UserCard;
+export default UserCard

@@ -1,21 +1,18 @@
-import React from 'react';
-import UserCard from '../UserCard/UserCard';
-import './UsersContainer.css';
+import React, { FC } from 'react'
+import { User } from '../../types'
+import UserCard from '../UserCard/UserCard'
+import './UsersContainer.css'
 
-const UsersContainer = ({ users }) => {
-  
-  return (
-    <div className="usersContainer">
-      {users && users.map(user => (
-        <UserCard 
-          key={user.login.username}
-          thumb={user.picture.medium} 
-          name={user.name} 
-          location={user.location}
-          userName={user.login.username} />
-      ))}
-    </div>
-  );
+interface UsersContainerProps {
+  users: User[]
 }
 
-export default UsersContainer;
+const UsersContainer: FC<UsersContainerProps> = props => {
+  const { users } = props
+
+  return (
+    <div className="usersContainer">{users && users.map(user => <UserCard key={user.username} user={user} />)}</div>
+  )
+}
+
+export default UsersContainer

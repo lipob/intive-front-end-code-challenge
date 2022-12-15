@@ -1,20 +1,32 @@
-import React from 'react'
-import { Route } from 'react-router-dom'
+import React, { FC } from 'react'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Home from './components/Home/Home'
 import ProfileDetail from './components/UserDetail/UserDetail'
 import Footer from './components/Footer/Footer'
 import './App.css'
+import { Provider } from 'react-redux'
+import store from './store'
 
-function App() {
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <Home />,
+  },
+  {
+    path: '/user/:username',
+    element: <ProfileDetail />,
+  },
+])
+
+const App: FC = () => {
   return (
-    <div className="appWrapper">
-      <Route exact path="/" component={Home} />
-      <Route path="/user/:username" component={ProfileDetail} />
-      <Route path="/" component={Footer} />
-    </div>
+    <Provider store={store}>
+      <div className="appWrapper">
+        <RouterProvider router={router} />
+        <Footer />
+      </div>
+    </Provider>
   )
 }
 
 export default App
-
-

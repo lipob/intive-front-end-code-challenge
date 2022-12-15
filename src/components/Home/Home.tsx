@@ -1,31 +1,31 @@
-import React, { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { getUsers, isLoading } from '../../store/actions';
+import React, { useState, useEffect } from 'react'
+import { useAppDispatch } from '../../hooks/useAppDispatch'
+import { useAppSelector } from '../../hooks/useAppSelector'
+import { getUsers } from '../../store/actions/actions'
+import { AppState } from '../../store/reducers/rootReducer'
 import UsersContainer from '../UsersContainer/UsersContainer'
-import './Home.css';
+import './Home.css'
 
 const Home = () => {
-  const [page, setPage] = useState(1)
-  const [users, setUsers] = useState(0)
-  const resultsLimitPerPage = 10;
-  const currentUsers = useSelector(state => state.users)
-  const lastPage = useSelector(state => state.page)
-  const loading = useSelector(state => state.loading)
-  const dispatch = useDispatch()
+  const [page, setPage] = useState<number>(1)
+  const [users, setUsers] = useState<number>(0)
+  const currentUsers = useAppSelector(state => state.users)
+  const lastPage = useAppSelector(state => state.page)
+  const loading = useAppSelector(state => state.loading)
+  const dispatch = useAppDispatch()
+  const resultsLimitPerPage = 10
 
   // Fetch users on page load
   useEffect(() => {
     if (!currentUsers.length) {
-      dispatch(isLoading());
-      dispatch(getUsers(page, resultsLimitPerPage));
+      dispatch(getUsers(page, resultsLimitPerPage))
     }
   }, [dispatch, page, currentUsers])
 
   // Fetch users when user scrolls
   useEffect(() => {
     if (page !== 1 && page <= 5 && users <= 40) {
-      dispatch(isLoading());
-      dispatch(getUsers(page, resultsLimitPerPage));
+      dispatch(getUsers(page, resultsLimitPerPage))
     }
   }, [dispatch, page, users])
 
@@ -34,29 +34,27 @@ const Home = () => {
     const handleScroll = () => {
       if (page < 4) {
         if (window.innerHeight + window.pageYOffset >= document.body.offsetHeight) {
-          setPage(page => page = lastPage)
-          setUsers(users => users = currentUsers.length)
+          setPage(lastPage)
+          setUsers(currentUsers.length)
         }
       }
     }
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
-  });
-  
+  })
+
   return (
     <div>
       <div className="homeHeader">
         <h1>Code challenge!</h1>
-        <p className="homeLeading">
-          Create a simple page using the Random User API.
-        </p>
+        <p className="homeLeading">Create a simple page using the Random User API.</p>
       </div>
       <div className="homeMain">
         <UsersContainer users={currentUsers && currentUsers} />
       </div>
       {loading ? <span className="loaderWrapper">Loading...</span> : null}
     </div>
-  );
+  )
 }
 
-export default Home;
+export default Home
