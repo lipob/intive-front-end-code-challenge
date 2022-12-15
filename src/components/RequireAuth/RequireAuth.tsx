@@ -3,13 +3,17 @@ import { Navigate, useLocation } from 'react-router-dom'
 import { useAuth } from '../../hooks/useAuth'
 
 interface RequireAuthProps {
-  children?: ReactNode
+  children: JSX.Element
 }
 
 const RequireAuth = (props: RequireAuthProps) => {
   const { children } = props
   const auth = useAuth()
   const location = useLocation()
+
+  console.log('auth', auth)
+  // eslint-disable-next-line no-debugger
+  debugger
 
   if (!auth?.user) {
     // Redirect them to the /login page, but save the current location they were

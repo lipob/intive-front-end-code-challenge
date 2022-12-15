@@ -3,7 +3,7 @@ import { useAppDispatch } from '../../hooks/useAppDispatch'
 import { useAppSelector } from '../../hooks/useAppSelector'
 import { getUsers } from '../../store/actions/actions'
 import UsersContainer from '../../components/UsersContainer/UsersContainer'
-import './Home.css'
+import './styles.css'
 
 const Home = () => {
   const [page, setPage] = useState<number>(1)

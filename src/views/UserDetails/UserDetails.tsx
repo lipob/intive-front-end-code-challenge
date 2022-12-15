@@ -3,7 +3,7 @@ import { Link, useParams } from 'react-router-dom'
 import { MapPin, Phone, Smartphone, Mail } from 'react-feather'
 import { User } from '../../types'
 import { useAppSelector } from '../../hooks/useAppSelector'
-import './UserDetails.css'
+import './styles.css'
 
 const UserDetails = () => {
   const [currentUser, setCurrentUser] = useState<User | null>(null)

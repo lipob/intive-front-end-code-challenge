@@ -3,13 +3,13 @@
  */
 const authProvider = {
   isAuthenticated: false,
-  signin(callback: VoidFunction) {
+  async signin(callback: VoidFunction) {
     authProvider.isAuthenticated = true
-    setTimeout(callback, 100) // fake async
+    setTimeout(callback, 2000) // fake async
   },
-  signout(callback: VoidFunction) {
+  async signout(callback: VoidFunction) {
     authProvider.isAuthenticated = false
-    setTimeout(callback, 100)
+    setTimeout(callback, 1000)
   },
 }
 
