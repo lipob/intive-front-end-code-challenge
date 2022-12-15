@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import { useSelector } from 'react-redux'
 import { Link, useParams } from 'react-router-dom'
 import { MapPin, Phone, Smartphone, Mail } from 'react-feather'
 import './UserDetail.css'
