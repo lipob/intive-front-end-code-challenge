@@ -6,14 +6,12 @@ import axios from 'axios'
 const authProvider = {
   isAuthenticated: false,
   async signin(userLoginData: string) {
-    console.log('userLoginData', userLoginData)
-
     // fake async request
     try {
       const url = `https://randomuser.me/api/`
       const { data } = await axios.get(url)
 
-      return data
+      return { data, userLoginData }
     } catch (error) {
       console.error(error)
     }
