@@ -8,7 +8,7 @@ import './styles.css'
 const UserDetails = () => {
   const [currentUser, setCurrentUser] = useState<User | null>(null)
   const { username } = useParams()
-  const users = useAppSelector(state => state.users)
+  const users = useAppSelector(state => state.users.users)
 
   useEffect(() => {
     if (users?.length) {

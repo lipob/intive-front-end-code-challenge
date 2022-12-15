@@ -1,8 +1,18 @@
-export const SET_IS_LOGGED_IN = 'SET_IS_LOGGED_IN'
+export const SET_USER_LOGGED_IN = 'SET_USER_LOGGED_IN'
+export const SET_USER_LOGGED_OUT = 'SET_USER_LOGGED_OUT'
 
-export interface SetIsLoggedIn {
-  type: typeof SET_IS_LOGGED_IN
-  payload: boolean
+export interface LoggedUser {
+  isLoggedIn: boolean
+  user: string
 }
 
-export type SessionDispatchTypes = SetIsLoggedIn
+export interface SetUserLoggedIn {
+  type: typeof SET_USER_LOGGED_IN
+  payload: LoggedUser
+}
+
+export interface SetUserLoggedOut {
+  type: typeof SET_USER_LOGGED_OUT
+}
+
+export type SessionDispatchTypes = SetUserLoggedIn | SetUserLoggedOut

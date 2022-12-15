@@ -9,7 +9,7 @@ interface RequireAuthProps {
 const RequireAuth = (props: RequireAuthProps) => {
   const { children } = props
   const location = useLocation()
-  const isLoggedIn = useAppSelector(state => state.isLoggedIn)
+  const isLoggedIn = useAppSelector(state => state.session.isLoggedIn)
 
   // if (!auth.user) {
   if (!isLoggedIn) {

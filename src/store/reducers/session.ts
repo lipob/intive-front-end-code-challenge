@@ -1,3 +1,4 @@
+import { Reducer } from 'redux'
 import * as SessionActionTypes from '../actions/types/session'
 
 export interface SeesionState {
@@ -10,12 +11,21 @@ const initialState: SeesionState = {
   user: null,
 }
 
-const sessionReducer = (state = initialState, action: SessionActionTypes.SessionDispatchTypes) => {
+const sessionReducer: Reducer<SeesionState, SessionActionTypes.SessionDispatchTypes> = (
+  state = initialState,
+  action
+) => {
   switch (action.type) {
-    case SessionActionTypes.SET_IS_LOGGED_IN:
+    case SessionActionTypes.SET_USER_LOGGED_IN:
       return {
         ...state,
-        isLoggedIn: action.payload,
+        isLoggedIn: action.payload.isLoggedIn,
+      }
+    case SessionActionTypes.SET_USER_LOGGED_OUT:
+      return {
+        ...state,
+        isLoggedIn: false,
+        user: null,
       }
     default:
       return state

@@ -1,8 +1,13 @@
 import * as SessionActionTypes from './types/session'
+import { LoggedUser } from './types/session'
 
-const setIsLoggedIn = (payload: boolean) => ({
-  type: SessionActionTypes.SET_IS_LOGGED_IN,
+const setUserLoggedIn = (payload: LoggedUser) => ({
+  type: SessionActionTypes.SET_USER_LOGGED_IN,
   payload,
 })
 
-export { setIsLoggedIn }
+const setUserLoggedOut = () => ({
+  type: SessionActionTypes.SET_USER_LOGGED_OUT,
+})
+
+export { setUserLoggedIn, setUserLoggedOut }

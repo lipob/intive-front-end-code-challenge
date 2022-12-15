@@ -1,19 +1,20 @@
+import { Reducer } from 'redux'
 import { User } from '../../types'
 import * as UsersActionTypes from '../actions/types/users'
 
-export interface AppState {
+export interface UsersState {
   users: User[]
   page: number
   loading: boolean
 }
 
-const initialState: AppState = {
+const initialState: UsersState = {
   users: [],
   page: 1,
   loading: false,
 }
 
-const usersReducer = (state = initialState, action: UsersActionTypes.UsersDispatchTypes) => {
+const usersReducer: Reducer<UsersState, UsersActionTypes.UsersDispatchTypes> = (state = initialState, action) => {
   switch (action.type) {
     case UsersActionTypes.GET_USERS_SUCCESS:
       return {

@@ -3,7 +3,7 @@ import React, { FormEvent } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { authProvider } from '../../auth/auth'
 import { useAppDispatch } from '../../hooks/useAppDispatch'
-import { setIsLoggedIn } from '../../store/actions/session'
+import { setUserLoggedIn } from '../../store/actions/session'
 
 const Login = () => {
   const navigate = useNavigate()
@@ -25,7 +25,7 @@ const Login = () => {
 
     await authProvider.signin(username)
 
-    dispatch(setIsLoggedIn(true))
+    dispatch(setUserLoggedIn({ isLoggedIn: true, user: username }))
     navigate(from, { replace: true })
   }
 

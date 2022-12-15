@@ -8,9 +8,9 @@ import './styles.css'
 const Home = () => {
   const [page, setPage] = useState<number>(1)
   const dispatch = useAppDispatch()
-  const currentUsers = useAppSelector(state => state.users)
-  const lastPage = useAppSelector(state => state.page)
-  const loading = useAppSelector(state => state.loading)
+  const currentUsers = useAppSelector(state => state.users.users)
+  const lastPage = useAppSelector(state => state.users.page)
+  const loading = useAppSelector(state => state.users.loading)
   const resultsLimitPerPage = 10
 
   useEffect(() => {
