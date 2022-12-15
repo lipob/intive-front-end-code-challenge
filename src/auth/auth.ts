@@ -1,15 +1,26 @@
+import axios from 'axios'
+
 /**
  * This represents some generic auth provider API, like Firebase.
  */
 const authProvider = {
   isAuthenticated: false,
-  async signin(callback: VoidFunction) {
-    authProvider.isAuthenticated = true
-    setTimeout(callback, 2000) // fake async
+  async signin(userLoginData: string) {
+    console.log('userLoginData', userLoginData)
+
+    // fake async request
+    try {
+      const url = `https://randomuser.me/api/`
+      const { data } = await axios.get(url)
+
+      return data
+    } catch (error) {
+      console.error(error)
+    }
   },
-  async signout(callback: VoidFunction) {
+  signout(callback: VoidFunction) {
     authProvider.isAuthenticated = false
-    setTimeout(callback, 1000)
+    callback()
   },
 }
 

@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react'
 import { useAppDispatch } from '../../hooks/useAppDispatch'
 import { useAppSelector } from '../../hooks/useAppSelector'
-import { getUsers } from '../../store/actions/actions'
+import { getUsers } from '../../store/actions/users'
 import UsersContainer from '../../components/UsersContainer/UsersContainer'
 import './styles.css'
 
 const Home = () => {
   const [page, setPage] = useState<number>(1)
+  const dispatch = useAppDispatch()
   const currentUsers = useAppSelector(state => state.users)
   const lastPage = useAppSelector(state => state.page)
   const loading = useAppSelector(state => state.loading)
-  const dispatch = useAppDispatch()
   const resultsLimitPerPage = 10
 
   useEffect(() => {

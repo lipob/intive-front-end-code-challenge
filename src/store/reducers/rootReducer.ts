@@ -1,31 +1,42 @@
 import { User } from '../../types'
-import * as ActionTypes from '../actions/types'
+import * as UsersActionTypes from '../actions/types/users'
+import * as SessionActionTypes from '../actions/types/session'
 
 export interface AppState {
   users: User[]
   page: number
   loading: boolean
+  isLoggedIn: boolean
 }
 
 const initialState: AppState = {
   users: [],
   page: 1,
   loading: false,
+  isLoggedIn: false,
 }
 
-const rootReducer = (state = initialState, action: ActionTypes.UsersDispatchTypes) => {
+const rootReducer = (
+  state = initialState,
+  action: UsersActionTypes.UsersDispatchTypes | SessionActionTypes.SessionDispatchTypes
+) => {
   switch (action.type) {
-    case ActionTypes.GET_USERS_SUCCESS:
+    case UsersActionTypes.GET_USERS_SUCCESS:
       return {
         ...state,
         users: state.users.concat(action.payload),
         page: state.page + 1,
         loading: false,
       }
-    case ActionTypes.GET_USERS_LOADING:
+    case UsersActionTypes.GET_USERS_LOADING:
       return {
         ...state,
         loading: true,
+      }
+    case SessionActionTypes.SET_IS_LOGGED_IN:
+      return {
+        ...state,
+        isLoggedIn: action.payload,
       }
     default:
       return state

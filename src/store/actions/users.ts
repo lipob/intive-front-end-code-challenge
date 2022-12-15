@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { Dispatch } from 'redux'
 import { User } from '../../types'
-import * as ActionTypes from './types'
+import * as UsersActionTypes from './types/users'
 
 const mapUsersData = (data: any[]): User[] => {
   const usersData = data.map(user => ({
@@ -23,10 +23,10 @@ const mapUsersData = (data: any[]): User[] => {
   return usersData
 }
 
-const getUsers = (page: number, results: number) => async (dispatch: Dispatch<ActionTypes.UsersDispatchTypes>) => {
+const getUsers = (page: number, results: number) => async (dispatch: Dispatch<UsersActionTypes.UsersDispatchTypes>) => {
   try {
     dispatch({
-      type: ActionTypes.GET_USERS_LOADING,
+      type: UsersActionTypes.GET_USERS_LOADING,
     })
 
     const url = `https://randomuser.me/api/?page=${page}&results=${results}`
@@ -35,13 +35,13 @@ const getUsers = (page: number, results: number) => async (dispatch: Dispatch<Ac
     const mappedUserData = mapUsersData(data.results)
 
     dispatch({
-      type: ActionTypes.GET_USERS_SUCCESS,
+      type: UsersActionTypes.GET_USERS_SUCCESS,
       payload: mappedUserData,
       page,
     })
   } catch (error) {
     dispatch({
-      type: ActionTypes.GET_USERS_FAILS,
+      type: UsersActionTypes.GET_USERS_FAILS,
     })
   }
 }
