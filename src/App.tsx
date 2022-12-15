@@ -1,11 +1,11 @@
 import React, { FC } from 'react'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import Home from './components/Home/Home'
-import ProfileDetail from './components/UserDetail/UserDetail'
-import Footer from './components/Footer/Footer'
-import './App.css'
 import { Provider } from 'react-redux'
+import Home from './views/Home/Home'
+import Footer from './components/Footer/Footer'
 import store from './store'
+import UserDetails from './views/UserDetails/UserDetails'
+import './App.css'
 
 const router = createBrowserRouter([
   {
@@ -14,7 +14,7 @@ const router = createBrowserRouter([
   },
   {
     path: '/user/:username',
-    element: <ProfileDetail />,
+    element: <UserDetails />,
   },
 ])
 

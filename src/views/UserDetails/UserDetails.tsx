@@ -1,23 +1,21 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { MapPin, Phone, Smartphone, Mail } from 'react-feather'
-import './UserDetail.css'
 import { User } from '../../types'
 import { useAppSelector } from '../../hooks/useAppSelector'
+import './UserDetails.css'
 
-const UserDetail = () => {
+const UserDetails = () => {
   const [currentUser, setCurrentUser] = useState<User | null>(null)
-  const params = useParams()
-  const userName = params.username
+  const { username } = useParams()
   const users = useAppSelector(state => state.users)
 
-  // Set current user details
   useEffect(() => {
     if (users?.length) {
-      const userFitered = users.filter(user => user.username === userName)
+      const userFitered = users.filter(user => user.username === username)
       setCurrentUser(userFitered[0] || null)
     }
-  }, [users, userName])
+  }, [users, username])
 
   return (
     <div className="userDetailWrapper">
@@ -65,4 +63,4 @@ const UserDetail = () => {
   )
 }
 
-export default UserDetail
+export default UserDetails
