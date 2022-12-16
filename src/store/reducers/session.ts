@@ -20,6 +20,7 @@ const sessionReducer: Reducer<SeesionState, SessionActionTypes.SessionDispatchTy
       return {
         ...state,
         isLoggedIn: action.payload.isLoggedIn,
+        user: action.payload.user,
       }
     case SessionActionTypes.SET_USER_LOGGED_OUT:
       return {

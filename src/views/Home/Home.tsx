@@ -8,9 +8,9 @@ import './styles.css'
 const Home = () => {
   const [page, setPage] = useState<number>(1)
   const dispatch = useAppDispatch()
-  const currentUsers = useAppSelector(state => state.users.users)
-  const lastPage = useAppSelector(state => state.users.page)
-  const loading = useAppSelector(state => state.users.loading)
+  const { users: currentUsers, page: lastPage, loading } = useAppSelector(state => state.users)
+  const { user: loggedinUser } = useAppSelector(state => state.session)
+
   const resultsLimitPerPage = 10
 
   useEffect(() => {
@@ -35,8 +35,11 @@ const Home = () => {
   return (
     <div>
       <div className="homeHeader">
-        <h1>Code challenge!</h1>
-        <p className="homeLeading">Create a simple page using the Random User API.</p>
+        <h1>{`Welcome, ${loggedinUser}!`}</h1>
+        <p className="homeLeading">
+          This is a simple app that loads data from an external API and displays it in an infinite scroll. It also has
+          protected routes available only for logged-in users.
+        </p>
       </div>
       <div className="homeMain">
         <UsersContainer users={currentUsers && currentUsers} />

@@ -1,0 +1,25 @@
+.login-page-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 93px);
+  color: #ffffff;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+
+.login-form label {
+  font-size: 0.8em;
+  opacity: 0.8;
+}
+
+.login-form input,
+.login-form button {
+  height: 40px;
+  font-size: 1.2em;
+  border-radius: 4px;
+}

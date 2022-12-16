@@ -4,6 +4,7 @@ import { useLocation, useNavigate } from 'react-router-dom'
 import { authProvider } from '../../auth/auth'
 import { useAppDispatch } from '../../hooks/useAppDispatch'
 import { setUserLoggedIn } from '../../store/actions/session'
+import './styles.css'
 
 const Login = () => {
   const navigate = useNavigate()
@@ -32,13 +33,15 @@ const Login = () => {
   return (
     <div className="login-page-wrapper">
       <div className="login-container">
-        <p>You must log in to view the page at {from}</p>
+        <h3>Please, fill in the fake auth</h3>
+        <p>{`You must log in to view the page at: "${from}"`}</p>
 
-        <form onSubmit={handleSubmit}>
-          <label>
-            Username: <input name="username" type="text" />
-          </label>{' '}
-          <button type="submit">Login</button>
+        <form onSubmit={handleSubmit} className="login-form">
+          <label className="login-form-label">Username:</label>
+          <input name="username" type="text" className="login-form-input" placeholder="What' s your name?" />
+          <button type="submit" className="login-form-button">
+            Login
+          </button>
         </form>
       </div>
     </div>
