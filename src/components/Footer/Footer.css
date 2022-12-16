@@ -3,11 +3,16 @@
   margin-top: 32px;
   padding: 16px;
   text-align: center;
+  display: flex;
+  justify-content: center;
+  gap: 1em;
 }
+
 .footerWrapper a {
   color: #ffffff;
   text-decoration: none;
 }
+
 .footerWrapper a:hover {
   text-decoration: underline;
 }

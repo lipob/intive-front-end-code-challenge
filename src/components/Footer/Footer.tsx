@@ -1,5 +1,6 @@
 import React from 'react'
 import { Heart } from 'react-feather'
+import { authProvider } from '../../auth/auth'
 import { useAppDispatch } from '../../hooks/useAppDispatch'
 import { useAppSelector } from '../../hooks/useAppSelector'
 import { setUserLoggedOut } from '../../store/actions/session'
@@ -10,8 +11,10 @@ const Footer = () => {
   const dispatch = useAppDispatch()
   const isLoggedIn = useAppSelector(state => state.session.isLoggedIn)
 
-  const handleLogout = () => {
-    dispatch(setUserLoggedOut())
+  const handleLogout = async () => {
+    await authProvider.signout(() => {
+      dispatch(setUserLoggedOut())
+    })
   }
 
   return (
@@ -22,7 +25,11 @@ const Footer = () => {
           Leopoldo Blanco
         </a>
       </span>
-      {isLoggedIn && <button onClick={handleLogout}>Log out</button>}
+      {isLoggedIn && (
+        <button onClick={handleLogout} className="footer-logut-button">
+          Log out
+        </button>
+      )}
     </div>
   )
 }
