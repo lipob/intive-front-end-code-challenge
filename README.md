@@ -1,10 +1,8 @@
 <img src="https://digitalstudio.com.ar/docs/intive-code-challenge-responsive-preview.png" width="240px" alt="Intive Code Challenge! App responsive preview"/>
 
-# Intive Font-End Code Challenge!
+# Infinite scroll app with protected routes example!
 
-Create a simple page using the Random User API.
-
-To view the deployed app, just visit: <a href="https://intive-code-challenge.herokuapp.com/">https://intive-code-challenge.herokuapp.com/</a>
+This is a simple app that loads data from an external API and displays it in an infinite scroll. It also has protected routes available only for logged-in users.
 
 ## Getting Started - Available Scripts
 
