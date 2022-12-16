@@ -1,6 +1,6 @@
 <img src="https://digitalstudio.com.ar/docs/intive-code-challenge-responsive-preview.png" width="240px" alt="Intive Code Challenge! App responsive preview"/>
 
-# Infinite scroll app with protected routes example!
+# Infinite scroll with protected routes React app example
 
 This is a simple app that loads data from an external API and displays it in an infinite scroll. It also has protected routes available only for logged-in users.
 
